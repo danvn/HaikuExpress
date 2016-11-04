@@ -16,12 +16,23 @@ app.get('/process_get', function(req, res){
 	response = {
 		first_name: req.query.first_name,
 		last_name: req.query.last_name,
-		phone_number: req.query.phone_number
+		phone_number: req.query.usrtel
 	};
 	console.log(response);
 	res.end(JSON.stringify(response));
 })
 
+app.post('/process_post', urlencodedParser, function (req, res) {
+   // Prepare output in JSON format
+   // Post doesnt include the requests information in the URL 
+   response = {
+      first_name:req.body.first_name,
+      last_name:req.body.last_name,
+      password:req.body.usrpwd
+   };
+   console.log(response);
+   res.end(JSON.stringify(response));
+})
 // This responds with "Hello World" on the homepage
 app.get('/', function (req, res) {
    console.log("Got a GET request for the homepage");
