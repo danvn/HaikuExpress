@@ -16,7 +16,11 @@ app.use(express.static('public'));
 app.use(cookieParser())
 
 app.get('/index.html', function(req, res){
-	res.sendFile( __dirname + "/" + "index.htm");
+	res.sendFile( __dirname + "/" + "public/index.htm");
+})
+
+app.get('/login', function(req,res){
+   res.sendFile( __dirname + "/" + "public/modal_index.htm");
 })
 
 
@@ -24,14 +28,20 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
    // Post doesnt include the requests information in the URL 
    response = {
+      username:req.body.username,
       first_name:req.body.first_name,
       last_name:req.body.last_name,
       phone_number: req.body.usrtel,
       password:req.body.usrpwd
    };
    var userPhone = "+1" + response.phone_number;
-   console.log("Sending message to", response.first_name, response.last_name);
-   console.log("Phone Number: ", response.phone_number);
+
+   console.log(response);
+
+   // console.log("Sending message to", response.username);
+   // console.log("Phone Number: ", response.phone_number);
+   // console.log("Username: ", response.username);
+   // console.log("Password: ", response.password);
 
 
    client.messages.create({
