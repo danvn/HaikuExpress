@@ -29,12 +29,15 @@ app.post('/process_post', urlencodedParser, function (req, res) {
       phone_number: req.body.usrtel,
       password:req.body.usrpwd
    };
-   console.log(response);
+   var userPhone = "+1" + response.phone_number;
+   console.log("Sending message to", response.first_name, response.last_name);
+   console.log("Phone Number: ", response.phone_number);
+
 
    client.messages.create({
-      to: "+17192721827",
+      to: userPhone,
       from: "+13039930055",
-      body: "This is the ship that made the Kessel Run in fourteen parsecs?",
+      body: "Congratulations, \n Haiku Express will send you \n sports highlights daily",
       }, function(err, message) {
       console.log(message.sid);
    });
