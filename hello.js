@@ -48,7 +48,7 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    client.messages.create({
       to: userPhone,
       from: "+13039930055",
-      body: "Congratulations, \n Haiku Express will send you \n sports highlights daily",
+      body: "Congratulations, " + response.first_name + " \nHaiku Express will send you sports highlights daily",
       }, function(err, message) {
       console.log(message.sid);
    });
