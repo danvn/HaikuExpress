@@ -10,3 +10,9 @@ $button.on('click', function(){
 $exit.on('click', function(){
   $myModal.removeClass('display');
 });
+
+window.onclick = function(event) {
+    if (event.target == $myModal) {
+        $myModal.removeClass('display');
+    }
+};

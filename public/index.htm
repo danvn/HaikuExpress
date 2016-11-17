@@ -2,16 +2,20 @@
 <html>
    <head>
       <title>Haiku Express</title>
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.min.css" />
       <link rel="stylesheet" type="text/css" href="styles.css" />
    </head>
    <body>
-    <h1>Haiku Express</h1>
+    <h1>HAIKU EXPRESS</h1>
     <div style="text-align: center;">
       <button>Sign Up</button>
     </div>
     <div id="myModal" class="modal">
       <div class="modal-content">
         <span>x</span>
+        <div class="modal-header">
+           <h2>Sign Up</h2>
+        </div>
         <form  action = "http://127.0.0.1:8081/process_post" method = "POST">
            <div class="inputs">
             <input type = "text" name = "username" placeholder="Username"><br>
@@ -19,7 +23,9 @@
             <input type = "text" name = "last_name" placeholder="Last Name"> <br>
             <input type = "tel" name = "usrtel" placeholder="Phone Number"><br>
             <input type = "password" name = "usrpwd" placeholder="Password"><br>
-            <input type = "submit" value = "Submit">
+            <div class="submit-holder" style="text-align: center;">
+              <input type = "submit" value = "Submit">
+            </div>
            </div>
         </form>
       </div>

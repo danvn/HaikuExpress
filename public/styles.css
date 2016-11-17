@@ -4,18 +4,27 @@ body {
   background-repeat: no-repeat;
 }
 h1 {
-  font-size: 72px;
   text-align: center;
 }
 span {
   display: block;
   text-align: right;
+  font-size: 15px;
+}
+h2 {
+  text-align: center;
+  color: white;
+  margin-bottom: 0;
 }
 input {
   display: block;
-  margin: 5px auto;
-  padding: 10px;
+  margin: 0 auto;
   border-radius: 5px;
+  font-size: 20px;
+  width: 450px;
+}
+input[type=text], input[type=tel], input[type=password] {
+  height: 50px;
 }
 .modal {
   display: none;
@@ -33,7 +42,29 @@ input {
   margin: 15% auto;
   padding: 20px;
   width: 25%;
+  box-shadow: 5px 5px 21px 0 rgba(0,0,0,0.49);
+  animation: drop-down 2s ease-in-out;
+}
+.modal-header {
+  background: lightgray;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  border-radius: 4px;
 }
 .display {
   display: block;
+}
+span:hover {
+  cursor: pointer;
+  color: lightgray;
+}
+@keyframes drop-down {
+  from{
+    opacity: 0;
+  }
+  to{
+    opacity: 1;
+  }
 }
