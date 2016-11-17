@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var cookieParser = require('cookie-parser')
+var cookieParser = require('cookie-parser');
 var accountSid = 'ACe03012c9d0150427a0ae124bd51d96a3';
 var authToken = 'f74040cd8dde1e9e861d2022a2382cd4';
 
@@ -10,23 +10,24 @@ var authToken = 'f74040cd8dde1e9e861d2022a2382cd4';
 var client = require('twilio')(accountSid, authToken);
 
 // Create application/x-www-form-urlencoded parser
-var urlencodedParser = bodyParser.urlencoded({ extended: false })
+var urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 app.use(express.static('public'));
-app.use(cookieParser())
+app.use(cookieParser());
 
+//Sends file to server for the home page
 app.get('/index.html', function(req, res){
 	res.sendFile( __dirname + "/" + "public/index.htm");
-})
+});
 
-app.get('/login', function(req,res){
+app.get('/modal_index.htm', function(req,res){
    res.sendFile( __dirname + "/" + "public/modal_index.htm");
-})
+});
 
 
 app.post('/process_post', urlencodedParser, function (req, res) {
    // Prepare output in JSON format
-   // Post doesnt include the requests information in the URL 
+   // Post doesnt include the requests information in the URL
    response = {
       username:req.body.username,
       first_name:req.body.first_name,
@@ -53,14 +54,13 @@ app.post('/process_post', urlencodedParser, function (req, res) {
    });
 
    res.end(JSON.stringify(response));
-})
+});
 
 var server = app.listen(8081, function () {
 
-   var host = server.address().address
-   var port = server.address().port
+   var host = server.address().address;
+   var port = server.address().port;
 
 
-   console.log("Example app listening at http://%s:%s", host, port)
-})
-
+   console.log("Example app listening at http://%s:%s", host, port);
+});
