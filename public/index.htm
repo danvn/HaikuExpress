@@ -6,30 +6,46 @@
       <link rel="stylesheet" type="text/css" href="styles.css" />
    </head>
    <body>
-    <h1>HAIKU EXPRESS</h1>
-    <div style="text-align: center;">
-      <button>Sign Up</button>
-    </div>
-    <div id="myModal" class="modal">
-      <div class="modal-content">
-        <span>x</span>
-        <div class="modal-header">
-           <h2>Sign Up</h2>
-        </div>
-        <form  action = "http://127.0.0.1:8081/process_post" method = "POST">
-           <div class="inputs">
-            <input type = "text" name = "username" placeholder="Username"><br>
-            <input type = "text" name = "first_name" placeholder="First Name"> <br>
-            <input type = "text" name = "last_name" placeholder="Last Name"> <br>
-            <input type = "tel" name = "usrtel" placeholder="Phone Number"><br>
-            <input type = "password" name = "usrpwd" placeholder="Password"><br>
-            <div class="submit-holder" style="text-align: center;">
-              <input type = "submit" value = "Submit">
-            </div>
+     <!-- Main container -->
+     <div class="container">
+       <!-- Row for the Page Header -->
+       <div class="row">
+         <h1>HAIKU EXPRESS</h1>
+         <div style="text-align: center;">
+           <button>Sign Up</button>
+         </div>
+       </div>
+       <!-- The modal code -->
+       <!-- Outer div is set up to make opaque background -->
+       <div class="row">
+         <div class="twelve columns">
+           <div id="myModal" class="modal">
+             <!-- modal-content holds most of the actual modal stuff -->
+             <div class="modal-content">
+               <!-- Exit button -->
+               <span>x</span>
+               <!-- Header -->
+               <div class="modal-header">
+                  <h2>Sign Up</h2>
+               </div>
+               <form  action = "http://127.0.0.1:8081/process_post" method = "POST">
+                  <div class="inputs">
+                   <input type = "text" name = "username" placeholder="Username"><br>
+                   <input type = "text" name = "first_name" placeholder="First Name"> <br>
+                   <input type = "text" name = "last_name" placeholder="Last Name"> <br>
+                   <input type = "tel" name = "usrtel" placeholder="Phone Number"><br>
+                   <input type = "password" name = "usrpwd" placeholder="Password"><br>
+                   <div class="submit-holder" style="text-align: center;">
+                     <input type = "submit" value = "Submit">
+                   </div>
+                  </div>
+               </form>
+             </div>
            </div>
-        </form>
-      </div>
-    </div>
+         </div>
+       </div>
+     </div>
+     <!-- Load Javascript after html -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="script.js"></script>
    </body>
