@@ -4,7 +4,8 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var accountSid = 'ACe03012c9d0150427a0ae124bd51d96a3';
 var authToken = 'f74040cd8dde1e9e861d2022a2382cd4';
-
+var moment = require('moment');
+moment().format();
 
 //require the Twilio module and create a REST client
 var client = require('twilio')(accountSid, authToken);
@@ -39,19 +40,17 @@ app.post('/process_post', urlencodedParser, function (req, res) {
 
    console.log(response);
 
-   // console.log("Sending message to", response.username);
-   // console.log("Phone Number: ", response.phone_number);
-   // console.log("Username: ", response.username);
-   // console.log("Password: ", response.password);
-
-
-   client.messages.create({
-      to: userPhone,
-      from: "+13039930055",
-      body: "Congratulations, " + response.first_name + " \nHaiku Express will send you sports highlights daily",
+   if (moment().hour() == 6){
+      console.log("It's 6:00 AM");
+      client.messages.create({
+         to: userPhone, // Needs to be all phone numbers in database
+         from: "+13039930055",
+         // Replace body with random motivational quote from DB 
+         body: "Congratulations, " + response.first_name + " \nMotivation... \nLoading...",
       }, function(err, message) {
-      console.log(message.sid);
-   });
+         console.log(message.sid);
+         });
+   }
 
    res.end(JSON.stringify(response));
 });
